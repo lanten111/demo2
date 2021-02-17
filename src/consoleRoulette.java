@@ -26,8 +26,7 @@ public class consoleRoulette {
                 String betInput = null;
                 int betNumber = 0;
                 double amount = 0.0;
-//                int randomBall = 0;
-//                double amountWon;
+
                 Scanner scanner = new Scanner(System.in);
 
                 System.out.println(s);
@@ -95,11 +94,6 @@ public class consoleRoulette {
                                 System.out.println("number: " + randomBall + "\n" + "Player      "+"bet "+ "outcome " + "winnings " + "\n" + s +"     "+finalBet +" "+  outcome +" "+ amountWon);
 
 
-//                                Number: 4
-//                                Player Bet Outcome Winnings
-//                                ---
-//                                        Tiki_Monkey 2 LOSE 0.0
-//                                Barbara EVEN WIN 6.0
                             }
                         },
                         5000
