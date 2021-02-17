@@ -47,8 +47,63 @@ public class consoleRoulette {
                         break;
                     }
                 }
-
+                
                 amount = scanner.nextDouble();
+
+                int finalBetNumber = betNumber;
+                double finalAmount = amount;
+                String finalBetInput = betInput;
+                new java.util.Timer().schedule(
+                        new java.util.TimerTask() {
+                            @Override
+                            public void run() {
+                                
+                                int randomBall;
+                                double amountWon = 0;
+                                randomBall = (int) (Math.random() * (36 - 1));
+
+                                if (finalBetNumber != 0) {
+                                    if (randomBall == finalBetNumber) {
+                                        amountWon = 36 * finalAmount;
+                                    }
+
+                                }
+
+                                if (finalBetInput != null) {
+                                    if (finalBetInput.equalsIgnoreCase("EVEN") & randomBall% 2 == 0) {
+                                        amountWon = 2 * finalAmount;
+                                    } else if (finalBetInput.equalsIgnoreCase("ODD") & !(randomBall % 2 == 0)) {
+                                        amountWon = 2 * finalAmount;
+                                    }
+                                }
+
+                                String outcome;
+                                int isBigger = Double.compare(amountWon, finalAmount);
+                                if (isBigger > 0){
+                                    outcome = "WIN";
+                                } else {
+                                    outcome = "LOSE";
+                                }
+
+                                String finalBet;
+                                if (finalBetInput == null){
+                                    finalBet = String.valueOf(finalBetNumber);
+                                } else {
+                                    finalBet = finalBetInput;
+                                }
+
+                                System.out.println("number: " + randomBall + "\n" + "Player      "+"bet "+ "outcome " + "winnings " + "\n" + s +"     "+finalBet +" "+  outcome +" "+ amountWon);
+
+
+//                                Number: 4
+//                                Player Bet Outcome Winnings
+//                                ---
+//                                        Tiki_Monkey 2 LOSE 0.0
+//                                Barbara EVEN WIN 6.0
+                            }
+                        },
+                        5000
+                );
 
 
             }
